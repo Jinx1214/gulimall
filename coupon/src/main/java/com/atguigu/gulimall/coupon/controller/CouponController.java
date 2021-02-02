@@ -3,6 +3,7 @@ package com.atguigu.gulimall.coupon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +30,16 @@ import com.atguigu.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+
+    /*测试接口*/
+    @RequestMapping("getCoupon")
+    public  R get(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满一百减10");
+
+        return R.ok().put("coupons" ,Arrays.asList(couponEntity));
+    }
 
     /**
      * 列表

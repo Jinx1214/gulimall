@@ -1,8 +1,10 @@
 package com.atguigu.gulimall.member.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.atguigu.gulimall.member.feign.couponServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +31,18 @@ import com.atguigu.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    couponServiceFeign feign;
+
+    /*测试远程调用接口*/
+    @RequestMapping("/member/list")
+    public R getList(){
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setUsername("张三");
+
+        return R.ok().put("member",memberEntity).put("coupons",feign.get());
+    }
 
     /**
      * 列表
