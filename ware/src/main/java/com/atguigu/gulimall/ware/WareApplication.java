@@ -1,13 +1,13 @@
 package com.atguigu.gulimall.ware;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WareApplication {
-
+@MapperScan("com.atguigu.gulimall.ware.dao")
+public class wareApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WareApplication.class, args);
+        SpringApplication.run(wareApplication.class,args);
     }
-
 }
