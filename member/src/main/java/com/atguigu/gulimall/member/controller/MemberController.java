@@ -6,6 +6,8 @@ import java.util.Map;
 
 import com.atguigu.gulimall.member.feign.couponServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,7 @@ import com.atguigu.common.utils.R;
  * @email Jinx1214@gmail.com
  * @date 2021-02-02 15:05:07
  */
+@RefreshScope
 @RestController
 @RequestMapping("member/member")
 public class MemberController {
@@ -34,6 +37,7 @@ public class MemberController {
 
     @Autowired
     couponServiceFeign feign;
+
 
     /*测试远程调用接口*/
     @RequestMapping("/member/list")
@@ -45,7 +49,7 @@ public class MemberController {
     }
 
     /**
-     * 列表
+     * 列ame表
      */
     @RequestMapping("/list")
    // @RequiresPermissions("member:member:list")
