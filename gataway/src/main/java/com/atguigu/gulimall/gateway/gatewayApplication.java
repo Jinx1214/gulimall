@@ -1,18 +1,17 @@
-package com.atguigu.gulimall.product;
+package com.atguigu.gulimall.gateway;
 
-import com.atguigu.common.utils.R;
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
-@EnableDiscoveryClient
 @RefreshScope
-@SpringBootApplication
-@MapperScan("com.atguigu.gulimall.product.dao")
-public class productApplication {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@EnableDiscoveryClient
+public class gatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(productApplication.class,args);
+        SpringApplication.run(gatewayApplication.class,args);
     }
 }
