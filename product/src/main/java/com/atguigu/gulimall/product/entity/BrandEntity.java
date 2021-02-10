@@ -7,6 +7,10 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * Æ·ÅÆ
  * 
@@ -27,6 +31,8 @@ public class BrandEntity implements Serializable {
 	/**
 	 * Æ·ÅÆÃû
 	 */
+	@NotNull
+	@NotBlank(message = "首字母校验失败")
 	private String name;
 	/**
 	 * Æ·ÅÆlogoµØÖ·
@@ -35,18 +41,23 @@ public class BrandEntity implements Serializable {
 	/**
 	 * ½éÉÜ
 	 */
+
 	private String descript;
 	/**
 	 * ÏÔÊ¾×´Ì¬[0-²»ÏÔÊ¾£»1-ÏÔÊ¾]
 	 */
+	@NotNull(message = "不能为空")
 	private Integer showStatus;
 	/**
 	 * ¼ìË÷Ê××ÖÄ¸
 	 */
+	@NotNull
 	private String firstLetter;
 	/**
 	 * ÅÅÐò
 	 */
+	@Min(value = 0,message = "排序不能小于0")
+	@NotNull
 	private Integer sort;
 
 }

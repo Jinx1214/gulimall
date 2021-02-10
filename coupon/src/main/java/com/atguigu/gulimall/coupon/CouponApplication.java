@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @MapperScan("com.atguigu.gulimall.coupon.dao")
 @EnableDiscoveryClient
-public class couponApplication {
+public class CouponApplication {
     public static void main(String[] args) {
-        SpringApplication.run(couponApplication.class,args);
+        SpringApplication.run(CouponApplication.class,args);
     }
 }

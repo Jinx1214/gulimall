@@ -11,8 +11,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @RefreshScope
 @SpringBootApplication
 @MapperScan("com.atguigu.gulimall.product.dao")
-public class productApplication {
+public class ProductApplication {
     public static void main(String[] args) {
-        SpringApplication.run(productApplication.class,args);
+        SpringApplication.run(ProductApplication.class,args);
     }
 }
