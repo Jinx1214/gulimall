@@ -1,8 +1,12 @@
 package com.atguigu.gulimall.product.controller;
 
+import java.lang.management.GarbageCollectorMXBean;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.atguigu.gulimall.product.vaild.Add;
+import com.atguigu.gulimall.product.vaild.Update;
+import com.atguigu.gulimall.product.vaild.UpdateStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,7 +64,7 @@ public class BrandController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
-    public R save(@Valid @RequestBody BrandEntity brand){
+    public R save(@Validated({Add.class}) @RequestBody BrandEntity brand){
 		brandService.save(brand);
 
         return R.ok();
@@ -71,12 +75,23 @@ public class BrandController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("product:brand:update")
-    public R update(@Valid @RequestBody BrandEntity brand){
+    public R update(@Validated(Update.class) @RequestBody BrandEntity brand){
 		brandService.updateById(brand);
 
         return R.ok();
     }
 
+
+    /**
+     * 修改状态
+     */
+    @RequestMapping("/update/status")
+    //@RequiresPermissions("product:brand:update")
+    public R updateStatus(@Validated({UpdateStatus.class}) @RequestBody BrandEntity brand){
+        brandService.updateById(brand);
+
+        return R.ok();
+    }
     /**
      * 删除
      */
